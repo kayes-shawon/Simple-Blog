@@ -1,0 +1,71 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html> -->
+{% load staticfiles %}
+<!Doctype html>
+<html lang="en">
+
+<head>
+    <h1>Kayes Shawon Blog</h1>
+	<title>Kayes Shawon Blog</title>
+
+    <link href="{{ STATIC_URL }}css/styles.css">
+    <link href="{{ STATIC_URL }}img/mainlogo.png">
+   <!-- <img src="{{ STATIC_URL }}img/mainlogo.png"> -->
+	<meta charset="utf-8"/>
+
+	<link rel="stylesheet" href="/static/css/styles.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+	<meta name="viewport content ="width-device-width, initial-scale=1.0'>
+
+</head>
+
+<body class="body">
+	<header class="mainhead">
+		<img src="/static/img/mainlogo.png" width="400" height="144">
+		<!--<p class="logoText">Sentdex</p>-->
+		<nav><ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/blog">Blog</a></li></li>
+		<li><a href="/blog/archives">News</a></li></li>
+		<li><a href="/blog/archives">Archive</a></li></li>
+		</ul></nav>
+	</header>
+
+	<aside class="sideInfo">
+	<article>
+		<h3>Recent News</h3>
+        {% for post in object_list %}
+		<!--<p>hey I am foridur kayes shaowon and i read in patuakhali science and technology university</p>-->
+         <p>{{ post.date|date:"Y-m-d" }}<a href="/blog/{{ post.id }}"> {{ post.title }}</a></p>
+        {% endfor %}
+	</article>
+	</aside>
+<div class="maincontent">
+		<div class= "content">
+		<article>
+			{% block content %}
+            {% endblock %}
+		</article>
+		</div>
+
+	</div>
+
+
+
+
+
+<footer class="mainfooter">
+		<p>Copyright: Md. Foridur Kayes Shawon</p>
+		</footer>
+
+</body>
+</html>

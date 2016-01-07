@@ -1,0 +1,27 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html> -->
+
+{% extends "base.html" %}
+{% block content %}
+
+{% for post in object_list %}
+<h3><a href="/blog/{{ post.id }}"> {{ post.title }}</a></h3>
+<div class= ="post_meta">
+    on {{ post.date }}
+</div>
+
+<div class = "post_body">
+    {{ post.body|safe|linebreaks }}
+</div>
+
+{% endfor %}
+{% endblock %}
+
